@@ -20,7 +20,7 @@ namespace MvcInAction.Filter.Controllers
         [AuthorizationFilter, ResourceFilter, ExceptionFilter, ActionFilter(""), ResultFilter]
         public string FilterOnException()
         {
-            return "same-scope-exception";
+            throw new Exception("test");
         }
     }
 }
