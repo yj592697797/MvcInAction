@@ -15,5 +15,12 @@ namespace MvcInAction.Filter.Controllers
         {
             return "same-scope";
         }
+
+        [HttpGet("/same-scope-exception")]
+        [AuthorizationFilter, ResourceFilter, ExceptionFilter, ActionFilter(""), ResultFilter]
+        public string FilterOnException()
+        {
+            return "same-scope-exception";
+        }
     }
 }

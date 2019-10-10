@@ -74,6 +74,7 @@ namespace MvcInAction.Filter
             await context.Response.WriteAsync($"<html><body>\r\n");
 
             await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/same-scope\">same-scope</a><br>\r\n");
+            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/same-scope-exception\">same-scope-exception</a><br>\r\n");
             await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/different-scope\">different-scope</a><br>\r\n");
             await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/specified-order-on-action-filter\">specified-order-on-action-filter</a><br>\r\n");
             await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/specified-order-on-exception-filter\">/specified-order-on-exception-filter</a><br>\r\n");
