@@ -29,6 +29,7 @@ namespace MvcInAction.Filter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<LoggerFilter2Attribute>();
             services.AddControllers(config => 
             {
                 // È«¾Ö¹ýÂËÆ÷
@@ -76,11 +77,16 @@ namespace MvcInAction.Filter
             await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/same-scope\">same-scope</a><br>\r\n");
             await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/same-scope-exception\">same-scope-exception</a><br>\r\n");
             await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/different-scope\">different-scope</a><br>\r\n");
+            await context.Response.WriteAsync("<br>");
             await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/specified-order-on-action-filter\">specified-order-on-action-filter</a><br>\r\n");
-            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/specified-order-on-exception-filter\">/specified-order-on-exception-filter</a><br>\r\n");
-            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/specified-order-on-authorization-filter\">/specified-order-on-authorization-filter</a><br>\r\n");
-            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/specified-order-on-different-filter\">/specified-order-on-different-filter</a><br>\r\n");
-            await context.Response.WriteAsync($"Url: {context.Request.Path}<br>\r\n");
+            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/specified-order-on-exception-filter\">specified-order-on-exception-filter</a><br>\r\n");
+            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/specified-order-on-authorization-filter\">specified-order-on-authorization-filter</a><br>\r\n");
+            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/specified-order-on-different-filter\">specified-order-on-different-filter</a><br>\r\n");
+            await context.Response.WriteAsync("<br>");
+            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/use-type-filter\">use-type-filter</a><br>\r\n");
+            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/use-encapsulation-type-filter\">use-encapsulation-type-filter</a><br>\r\n");
+            await context.Response.WriteAsync($"<a href=\"{context.Request.PathBase}/use-service-filter\">use-service-filter</a><br>\r\n");
+            await context.Response.WriteAsync($"<br>Url: {context.Request.Path}<br>\r\n");
 
             await context.Response.WriteAsync($"</body></html>");
         }
